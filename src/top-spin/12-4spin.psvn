@@ -1,0 +1,18 @@
+12
+
+12 12 12 12 12 12 12 12 12 12 12 12
+
+A B C D E F G H I J K L => D C B A E F G H I J K L COST 1
+A B C D E F G H I J K L => E D C B F G H I J K L A COST 2
+A B C D E F G H I J K L => F E D C G H I J K L A B COST 3
+A B C D E F G H I J K L => G F E D H I J K L A B C COST 4
+A B C D E F G H I J K L => H G F E I J K L A B C D COST 5
+A B C D E F G H I J K L => I H G F J K L A B C D E COST 6
+A B C D E F G H I J K L => J I H G K L A B C D E F COST 7
+A B C D E F G H I J K L => K J I H L A C B D E F G COST 8
+A B C D E F G H I J K L => L K J I A B C D E F G H COST 9
+A B C D E F G H I J K L => A L K J B C D E F G H I COST 10
+A B C D E F G H I J K L => B A L K C D E F G H I J COST 11
+A B C D E F G H I J K L => C B A L D E F G H I J K COST 12
+
+GOAL 0 1 2 3 4 5 6 7 8 9 10 11
