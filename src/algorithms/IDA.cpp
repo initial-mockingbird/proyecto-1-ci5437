@@ -4,7 +4,7 @@
 
 #include "IDA.hpp"
 
-//#include "../top-spin/topspin12-4.h"
+//#include "../top-spin/12-4spin.h"
 
 typedef unsigned long long bound_t;
 typedef std::pair<std::optional<state_t>, bound_t> ida_pair_t;
@@ -60,13 +60,9 @@ std::optional<state_t> do_ida() {
     while (true)
     {
         g = 0ULL;
-        std::cout << "profundidad actual: " << bound << std::endl;
         ida_pair_t p(f_bounded_dfs_visit(root, bound));
 
-        if (p.first.has_value()) {
-            std::cout << "Successs!!!!!" << std::endl;
-            return p.first.value();
-        }
+        if (p.first.has_value()) return p.first.value();
         
         bound = p.second + 1; // + 1 por los momentos
     }
