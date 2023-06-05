@@ -79,7 +79,6 @@ std::optional<Node> a_star(GlobalConfig opt){
         Compare_Tuple<Node>
         > pq;
 
-    opt.set_distance(opt.init(),0);
     pq.push({opt.h(opt.init()),opt.make_root_node(opt.init())});
     
     while (!pq.empty()){
