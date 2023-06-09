@@ -71,6 +71,7 @@ T pop(std::priority_queue<
 template<typename GlobalConfig, typename State, typename Node, typename Action>
 requires A_star<GlobalConfig, State, Node, Action>
 std::optional<Node> a_star(GlobalConfig opt){
+    return std::nullopt;
     // Arguments swap, in the pdf it has type: PQ<Node,double>
     // but i prefer to put the cost at the beginning.
     std::priority_queue<
