@@ -66,6 +66,14 @@ abstractor:
 	$(CXX) $(OPT) ../../algorithms/A_star/A_star.cpp -include $< -include solver.cpp -o $@
 	rm -f $*.c
 
+%.a_star:  %.c ../../algorithms/A_star/A_star.hpp
+	$(CXX) $(OPT) ../../algorithms/A_star/A_star.cpp -include $< -include solver_a.cpp -o $@
+	rm -f $*.c
+
+%.ida:  %.c ../../algorithms/IDA.hpp
+	$(CXX) $(OPT) ../../algorithms/IDA.cpp -include $< -include solver_ida.cpp -o $@
+	rm -f $*.c
+
 .PHONY: clean
 clean:
 	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~
