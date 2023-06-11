@@ -11,9 +11,7 @@
 
 #define psvn2c_PSVN_API
 
-#define HAVE_FWD_MOVE_PRUNING
 #define HAVE_BWD_MOVES
-#define HAVE_BWD_MOVE_PRUNING
 #define HAVE_ABSTRACTION
 
 
@@ -47,24 +45,20 @@ typedef struct {
 
 #define num_fwd_rules 12
 #define num_bwd_rules 12
-static const char *fwd_rule_name[ 12 ] = { "rule_1", "rule_2", "rule_3", "rule_4", "rule_5", "rule_6", "rule_7", "rule_8", "rule_9", "rule_10", "rule_11", "rule_12" };
+static const char *fwd_rule_name[ 12 ] = { "REVAT0", "REVAT1", "REVAT2", "REVAT3", "REVAT4", "REVAT5", "REVAT6", "REVAT7", "REVAT8", "REVAT9", "REVAT10", "REVAT11" };
 #define get_fwd_rule_label( ruleid ) (fwd_rule_name[(ruleid)]) 
-static const char *bwd_rule_name[ 12 ] = { "rule_1", "rule_2", "rule_3", "rule_4", "rule_5", "rule_6", "rule_7", "rule_8", "rule_9", "rule_10", "rule_11", "rule_12" };
+static const char *bwd_rule_name[ 12 ] = { "REVAT0", "REVAT1", "REVAT2", "REVAT3", "REVAT4", "REVAT5", "REVAT6", "REVAT7", "REVAT8", "REVAT9", "REVAT10", "REVAT11" };
 #define get_bwd_rule_label( ruleid ) (bwd_rule_name[(ruleid)]) 
 #define cost_of_cheapest_fwd_rule 1
-#define cost_of_costliest_fwd_rule 12
-static const int fwd_rule_cost[ 12 ] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-#define get_fwd_rule_cost( ruleid ) (fwd_rule_cost[(ruleid)]) 
+#define cost_of_costliest_fwd_rule 1
+#define get_fwd_rule_cost( ruleid ) 1
 #define cost_of_cheapest_bwd_rule 1
-#define cost_of_costliest_bwd_rule 12
-static const int bwd_rule_cost[ 12 ] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-#define get_bwd_rule_cost( ruleid ) (bwd_rule_cost[(ruleid)]) 
+#define cost_of_costliest_bwd_rule 1
+#define get_bwd_rule_cost( ruleid ) 1
 
 static int fwd_rule_label_sets[144] = {0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11};
 
 static int bwd_rule_label_sets[144] = {0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11,0,1,2,3,4,5,6,7,8,9,10,11};
-
-static int fwd_prune_table[ 156 ] = { 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 0, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144 };
 
 static void fwdrule1( const state_t *state, state_t *child_state )
 {
@@ -84,178 +78,178 @@ static void fwdrule1( const state_t *state, state_t *child_state )
 
 static void fwdrule2( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 4 ];
-  child_state->vars[ 1 ] = state->vars[ 3 ];
-  child_state->vars[ 2 ] = state->vars[ 2 ];
-  child_state->vars[ 3 ] = state->vars[ 1 ];
-  child_state->vars[ 4 ] = state->vars[ 5 ];
-  child_state->vars[ 5 ] = state->vars[ 6 ];
-  child_state->vars[ 6 ] = state->vars[ 7 ];
-  child_state->vars[ 7 ] = state->vars[ 8 ];
-  child_state->vars[ 8 ] = state->vars[ 9 ];
-  child_state->vars[ 9 ] = state->vars[ 10 ];
-  child_state->vars[ 10 ] = state->vars[ 11 ];
-  child_state->vars[ 11 ] = state->vars[ 0 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 4 ];
+  child_state->vars[ 2 ] = state->vars[ 3 ];
+  child_state->vars[ 3 ] = state->vars[ 2 ];
+  child_state->vars[ 4 ] = state->vars[ 1 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule3( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 5 ];
-  child_state->vars[ 1 ] = state->vars[ 4 ];
-  child_state->vars[ 2 ] = state->vars[ 3 ];
-  child_state->vars[ 3 ] = state->vars[ 2 ];
-  child_state->vars[ 4 ] = state->vars[ 6 ];
-  child_state->vars[ 5 ] = state->vars[ 7 ];
-  child_state->vars[ 6 ] = state->vars[ 8 ];
-  child_state->vars[ 7 ] = state->vars[ 9 ];
-  child_state->vars[ 8 ] = state->vars[ 10 ];
-  child_state->vars[ 9 ] = state->vars[ 11 ];
-  child_state->vars[ 10 ] = state->vars[ 0 ];
-  child_state->vars[ 11 ] = state->vars[ 1 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 5 ];
+  child_state->vars[ 3 ] = state->vars[ 4 ];
+  child_state->vars[ 4 ] = state->vars[ 3 ];
+  child_state->vars[ 5 ] = state->vars[ 2 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule4( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 6 ];
-  child_state->vars[ 1 ] = state->vars[ 5 ];
-  child_state->vars[ 2 ] = state->vars[ 4 ];
-  child_state->vars[ 3 ] = state->vars[ 3 ];
-  child_state->vars[ 4 ] = state->vars[ 7 ];
-  child_state->vars[ 5 ] = state->vars[ 8 ];
-  child_state->vars[ 6 ] = state->vars[ 9 ];
-  child_state->vars[ 7 ] = state->vars[ 10 ];
-  child_state->vars[ 8 ] = state->vars[ 11 ];
-  child_state->vars[ 9 ] = state->vars[ 0 ];
-  child_state->vars[ 10 ] = state->vars[ 1 ];
-  child_state->vars[ 11 ] = state->vars[ 2 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 6 ];
+  child_state->vars[ 4 ] = state->vars[ 5 ];
+  child_state->vars[ 5 ] = state->vars[ 4 ];
+  child_state->vars[ 6 ] = state->vars[ 3 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule5( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 7 ];
-  child_state->vars[ 1 ] = state->vars[ 6 ];
-  child_state->vars[ 2 ] = state->vars[ 5 ];
-  child_state->vars[ 3 ] = state->vars[ 4 ];
-  child_state->vars[ 4 ] = state->vars[ 8 ];
-  child_state->vars[ 5 ] = state->vars[ 9 ];
-  child_state->vars[ 6 ] = state->vars[ 10 ];
-  child_state->vars[ 7 ] = state->vars[ 11 ];
-  child_state->vars[ 8 ] = state->vars[ 0 ];
-  child_state->vars[ 9 ] = state->vars[ 1 ];
-  child_state->vars[ 10 ] = state->vars[ 2 ];
-  child_state->vars[ 11 ] = state->vars[ 3 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 7 ];
+  child_state->vars[ 5 ] = state->vars[ 6 ];
+  child_state->vars[ 6 ] = state->vars[ 5 ];
+  child_state->vars[ 7 ] = state->vars[ 4 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule6( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 8 ];
-  child_state->vars[ 1 ] = state->vars[ 7 ];
-  child_state->vars[ 2 ] = state->vars[ 6 ];
-  child_state->vars[ 3 ] = state->vars[ 5 ];
-  child_state->vars[ 4 ] = state->vars[ 9 ];
-  child_state->vars[ 5 ] = state->vars[ 10 ];
-  child_state->vars[ 6 ] = state->vars[ 11 ];
-  child_state->vars[ 7 ] = state->vars[ 0 ];
-  child_state->vars[ 8 ] = state->vars[ 1 ];
-  child_state->vars[ 9 ] = state->vars[ 2 ];
-  child_state->vars[ 10 ] = state->vars[ 3 ];
-  child_state->vars[ 11 ] = state->vars[ 4 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 8 ];
+  child_state->vars[ 6 ] = state->vars[ 7 ];
+  child_state->vars[ 7 ] = state->vars[ 6 ];
+  child_state->vars[ 8 ] = state->vars[ 5 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule7( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 9 ];
-  child_state->vars[ 1 ] = state->vars[ 8 ];
-  child_state->vars[ 2 ] = state->vars[ 7 ];
-  child_state->vars[ 3 ] = state->vars[ 6 ];
-  child_state->vars[ 4 ] = state->vars[ 10 ];
-  child_state->vars[ 5 ] = state->vars[ 11 ];
-  child_state->vars[ 6 ] = state->vars[ 0 ];
-  child_state->vars[ 7 ] = state->vars[ 1 ];
-  child_state->vars[ 8 ] = state->vars[ 2 ];
-  child_state->vars[ 9 ] = state->vars[ 3 ];
-  child_state->vars[ 10 ] = state->vars[ 4 ];
-  child_state->vars[ 11 ] = state->vars[ 5 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 9 ];
+  child_state->vars[ 7 ] = state->vars[ 8 ];
+  child_state->vars[ 8 ] = state->vars[ 7 ];
+  child_state->vars[ 9 ] = state->vars[ 6 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule8( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 10 ];
-  child_state->vars[ 1 ] = state->vars[ 9 ];
-  child_state->vars[ 2 ] = state->vars[ 8 ];
-  child_state->vars[ 3 ] = state->vars[ 7 ];
-  child_state->vars[ 4 ] = state->vars[ 11 ];
-  child_state->vars[ 5 ] = state->vars[ 0 ];
-  child_state->vars[ 6 ] = state->vars[ 2 ];
-  child_state->vars[ 7 ] = state->vars[ 1 ];
-  child_state->vars[ 8 ] = state->vars[ 3 ];
-  child_state->vars[ 9 ] = state->vars[ 4 ];
-  child_state->vars[ 10 ] = state->vars[ 5 ];
-  child_state->vars[ 11 ] = state->vars[ 6 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 10 ];
+  child_state->vars[ 8 ] = state->vars[ 9 ];
+  child_state->vars[ 9 ] = state->vars[ 8 ];
+  child_state->vars[ 10 ] = state->vars[ 7 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void fwdrule9( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 11 ];
-  child_state->vars[ 1 ] = state->vars[ 10 ];
-  child_state->vars[ 2 ] = state->vars[ 9 ];
-  child_state->vars[ 3 ] = state->vars[ 8 ];
-  child_state->vars[ 4 ] = state->vars[ 0 ];
-  child_state->vars[ 5 ] = state->vars[ 1 ];
-  child_state->vars[ 6 ] = state->vars[ 2 ];
-  child_state->vars[ 7 ] = state->vars[ 3 ];
-  child_state->vars[ 8 ] = state->vars[ 4 ];
-  child_state->vars[ 9 ] = state->vars[ 5 ];
-  child_state->vars[ 10 ] = state->vars[ 6 ];
-  child_state->vars[ 11 ] = state->vars[ 7 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 11 ];
+  child_state->vars[ 9 ] = state->vars[ 10 ];
+  child_state->vars[ 10 ] = state->vars[ 9 ];
+  child_state->vars[ 11 ] = state->vars[ 8 ];
 }
 
 static void fwdrule10( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 0 ];
-  child_state->vars[ 1 ] = state->vars[ 11 ];
-  child_state->vars[ 2 ] = state->vars[ 10 ];
-  child_state->vars[ 3 ] = state->vars[ 9 ];
-  child_state->vars[ 4 ] = state->vars[ 1 ];
-  child_state->vars[ 5 ] = state->vars[ 2 ];
-  child_state->vars[ 6 ] = state->vars[ 3 ];
-  child_state->vars[ 7 ] = state->vars[ 4 ];
-  child_state->vars[ 8 ] = state->vars[ 5 ];
-  child_state->vars[ 9 ] = state->vars[ 6 ];
-  child_state->vars[ 10 ] = state->vars[ 7 ];
-  child_state->vars[ 11 ] = state->vars[ 8 ];
+  child_state->vars[ 0 ] = state->vars[ 9 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 0 ];
+  child_state->vars[ 10 ] = state->vars[ 11 ];
+  child_state->vars[ 11 ] = state->vars[ 10 ];
 }
 
 static void fwdrule11( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 1 ];
-  child_state->vars[ 1 ] = state->vars[ 0 ];
-  child_state->vars[ 2 ] = state->vars[ 11 ];
-  child_state->vars[ 3 ] = state->vars[ 10 ];
-  child_state->vars[ 4 ] = state->vars[ 2 ];
-  child_state->vars[ 5 ] = state->vars[ 3 ];
-  child_state->vars[ 6 ] = state->vars[ 4 ];
-  child_state->vars[ 7 ] = state->vars[ 5 ];
-  child_state->vars[ 8 ] = state->vars[ 6 ];
-  child_state->vars[ 9 ] = state->vars[ 7 ];
-  child_state->vars[ 10 ] = state->vars[ 8 ];
-  child_state->vars[ 11 ] = state->vars[ 9 ];
+  child_state->vars[ 0 ] = state->vars[ 11 ];
+  child_state->vars[ 1 ] = state->vars[ 10 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 1 ];
+  child_state->vars[ 11 ] = state->vars[ 0 ];
 }
 
 static void fwdrule12( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 2 ];
-  child_state->vars[ 1 ] = state->vars[ 1 ];
-  child_state->vars[ 2 ] = state->vars[ 0 ];
-  child_state->vars[ 3 ] = state->vars[ 11 ];
-  child_state->vars[ 4 ] = state->vars[ 3 ];
-  child_state->vars[ 5 ] = state->vars[ 4 ];
-  child_state->vars[ 6 ] = state->vars[ 5 ];
-  child_state->vars[ 7 ] = state->vars[ 6 ];
-  child_state->vars[ 8 ] = state->vars[ 7 ];
-  child_state->vars[ 9 ] = state->vars[ 8 ];
-  child_state->vars[ 10 ] = state->vars[ 9 ];
-  child_state->vars[ 11 ] = state->vars[ 10 ];
+  child_state->vars[ 0 ] = state->vars[ 1 ];
+  child_state->vars[ 1 ] = state->vars[ 0 ];
+  child_state->vars[ 2 ] = state->vars[ 11 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 2 ];
 }
 
 static actfuncptr fwd_rules[ 12 ] = { fwdrule1, fwdrule2, fwdrule3, fwdrule4, fwdrule5, fwdrule6, fwdrule7, fwdrule8, fwdrule9, fwdrule10, fwdrule11, fwdrule12 };
@@ -332,8 +326,6 @@ static int fwdfn0_r0( const state_t *state, void *next_func )
   return 0;
 }
 
-static int bwd_prune_table[ 156 ] = { 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 0, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144 };
-
 static void bwdrule1( const state_t *state, state_t *child_state )
 {
   child_state->vars[ 0 ] = state->vars[ 3 ];
@@ -352,178 +344,178 @@ static void bwdrule1( const state_t *state, state_t *child_state )
 
 static void bwdrule2( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 11 ];
-  child_state->vars[ 1 ] = state->vars[ 3 ];
-  child_state->vars[ 2 ] = state->vars[ 2 ];
-  child_state->vars[ 3 ] = state->vars[ 1 ];
-  child_state->vars[ 4 ] = state->vars[ 0 ];
-  child_state->vars[ 5 ] = state->vars[ 4 ];
-  child_state->vars[ 6 ] = state->vars[ 5 ];
-  child_state->vars[ 7 ] = state->vars[ 6 ];
-  child_state->vars[ 8 ] = state->vars[ 7 ];
-  child_state->vars[ 9 ] = state->vars[ 8 ];
-  child_state->vars[ 10 ] = state->vars[ 9 ];
-  child_state->vars[ 11 ] = state->vars[ 10 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 4 ];
+  child_state->vars[ 2 ] = state->vars[ 3 ];
+  child_state->vars[ 3 ] = state->vars[ 2 ];
+  child_state->vars[ 4 ] = state->vars[ 1 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule3( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 10 ];
-  child_state->vars[ 1 ] = state->vars[ 11 ];
-  child_state->vars[ 2 ] = state->vars[ 3 ];
-  child_state->vars[ 3 ] = state->vars[ 2 ];
-  child_state->vars[ 4 ] = state->vars[ 1 ];
-  child_state->vars[ 5 ] = state->vars[ 0 ];
-  child_state->vars[ 6 ] = state->vars[ 4 ];
-  child_state->vars[ 7 ] = state->vars[ 5 ];
-  child_state->vars[ 8 ] = state->vars[ 6 ];
-  child_state->vars[ 9 ] = state->vars[ 7 ];
-  child_state->vars[ 10 ] = state->vars[ 8 ];
-  child_state->vars[ 11 ] = state->vars[ 9 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 5 ];
+  child_state->vars[ 3 ] = state->vars[ 4 ];
+  child_state->vars[ 4 ] = state->vars[ 3 ];
+  child_state->vars[ 5 ] = state->vars[ 2 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule4( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 9 ];
-  child_state->vars[ 1 ] = state->vars[ 10 ];
-  child_state->vars[ 2 ] = state->vars[ 11 ];
-  child_state->vars[ 3 ] = state->vars[ 3 ];
-  child_state->vars[ 4 ] = state->vars[ 2 ];
-  child_state->vars[ 5 ] = state->vars[ 1 ];
-  child_state->vars[ 6 ] = state->vars[ 0 ];
-  child_state->vars[ 7 ] = state->vars[ 4 ];
-  child_state->vars[ 8 ] = state->vars[ 5 ];
-  child_state->vars[ 9 ] = state->vars[ 6 ];
-  child_state->vars[ 10 ] = state->vars[ 7 ];
-  child_state->vars[ 11 ] = state->vars[ 8 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 6 ];
+  child_state->vars[ 4 ] = state->vars[ 5 ];
+  child_state->vars[ 5 ] = state->vars[ 4 ];
+  child_state->vars[ 6 ] = state->vars[ 3 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule5( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 8 ];
-  child_state->vars[ 1 ] = state->vars[ 9 ];
-  child_state->vars[ 2 ] = state->vars[ 10 ];
-  child_state->vars[ 3 ] = state->vars[ 11 ];
-  child_state->vars[ 4 ] = state->vars[ 3 ];
-  child_state->vars[ 5 ] = state->vars[ 2 ];
-  child_state->vars[ 6 ] = state->vars[ 1 ];
-  child_state->vars[ 7 ] = state->vars[ 0 ];
-  child_state->vars[ 8 ] = state->vars[ 4 ];
-  child_state->vars[ 9 ] = state->vars[ 5 ];
-  child_state->vars[ 10 ] = state->vars[ 6 ];
-  child_state->vars[ 11 ] = state->vars[ 7 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 7 ];
+  child_state->vars[ 5 ] = state->vars[ 6 ];
+  child_state->vars[ 6 ] = state->vars[ 5 ];
+  child_state->vars[ 7 ] = state->vars[ 4 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule6( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 7 ];
-  child_state->vars[ 1 ] = state->vars[ 8 ];
-  child_state->vars[ 2 ] = state->vars[ 9 ];
-  child_state->vars[ 3 ] = state->vars[ 10 ];
-  child_state->vars[ 4 ] = state->vars[ 11 ];
-  child_state->vars[ 5 ] = state->vars[ 3 ];
-  child_state->vars[ 6 ] = state->vars[ 2 ];
-  child_state->vars[ 7 ] = state->vars[ 1 ];
-  child_state->vars[ 8 ] = state->vars[ 0 ];
-  child_state->vars[ 9 ] = state->vars[ 4 ];
-  child_state->vars[ 10 ] = state->vars[ 5 ];
-  child_state->vars[ 11 ] = state->vars[ 6 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 8 ];
+  child_state->vars[ 6 ] = state->vars[ 7 ];
+  child_state->vars[ 7 ] = state->vars[ 6 ];
+  child_state->vars[ 8 ] = state->vars[ 5 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule7( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 6 ];
-  child_state->vars[ 1 ] = state->vars[ 7 ];
-  child_state->vars[ 2 ] = state->vars[ 8 ];
-  child_state->vars[ 3 ] = state->vars[ 9 ];
-  child_state->vars[ 4 ] = state->vars[ 10 ];
-  child_state->vars[ 5 ] = state->vars[ 11 ];
-  child_state->vars[ 6 ] = state->vars[ 3 ];
-  child_state->vars[ 7 ] = state->vars[ 2 ];
-  child_state->vars[ 8 ] = state->vars[ 1 ];
-  child_state->vars[ 9 ] = state->vars[ 0 ];
-  child_state->vars[ 10 ] = state->vars[ 4 ];
-  child_state->vars[ 11 ] = state->vars[ 5 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 9 ];
+  child_state->vars[ 7 ] = state->vars[ 8 ];
+  child_state->vars[ 8 ] = state->vars[ 7 ];
+  child_state->vars[ 9 ] = state->vars[ 6 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule8( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 5 ];
-  child_state->vars[ 1 ] = state->vars[ 7 ];
-  child_state->vars[ 2 ] = state->vars[ 6 ];
-  child_state->vars[ 3 ] = state->vars[ 8 ];
-  child_state->vars[ 4 ] = state->vars[ 9 ];
-  child_state->vars[ 5 ] = state->vars[ 10 ];
-  child_state->vars[ 6 ] = state->vars[ 11 ];
-  child_state->vars[ 7 ] = state->vars[ 3 ];
-  child_state->vars[ 8 ] = state->vars[ 2 ];
-  child_state->vars[ 9 ] = state->vars[ 1 ];
-  child_state->vars[ 10 ] = state->vars[ 0 ];
-  child_state->vars[ 11 ] = state->vars[ 4 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 10 ];
+  child_state->vars[ 8 ] = state->vars[ 9 ];
+  child_state->vars[ 9 ] = state->vars[ 8 ];
+  child_state->vars[ 10 ] = state->vars[ 7 ];
+  child_state->vars[ 11 ] = state->vars[ 11 ];
 }
 
 static void bwdrule9( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 4 ];
-  child_state->vars[ 1 ] = state->vars[ 5 ];
-  child_state->vars[ 2 ] = state->vars[ 6 ];
-  child_state->vars[ 3 ] = state->vars[ 7 ];
-  child_state->vars[ 4 ] = state->vars[ 8 ];
-  child_state->vars[ 5 ] = state->vars[ 9 ];
-  child_state->vars[ 6 ] = state->vars[ 10 ];
-  child_state->vars[ 7 ] = state->vars[ 11 ];
-  child_state->vars[ 8 ] = state->vars[ 3 ];
-  child_state->vars[ 9 ] = state->vars[ 2 ];
-  child_state->vars[ 10 ] = state->vars[ 1 ];
-  child_state->vars[ 11 ] = state->vars[ 0 ];
+  child_state->vars[ 0 ] = state->vars[ 0 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 11 ];
+  child_state->vars[ 9 ] = state->vars[ 10 ];
+  child_state->vars[ 10 ] = state->vars[ 9 ];
+  child_state->vars[ 11 ] = state->vars[ 8 ];
 }
 
 static void bwdrule10( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 0 ];
-  child_state->vars[ 1 ] = state->vars[ 4 ];
-  child_state->vars[ 2 ] = state->vars[ 5 ];
-  child_state->vars[ 3 ] = state->vars[ 6 ];
-  child_state->vars[ 4 ] = state->vars[ 7 ];
-  child_state->vars[ 5 ] = state->vars[ 8 ];
-  child_state->vars[ 6 ] = state->vars[ 9 ];
-  child_state->vars[ 7 ] = state->vars[ 10 ];
-  child_state->vars[ 8 ] = state->vars[ 11 ];
-  child_state->vars[ 9 ] = state->vars[ 3 ];
-  child_state->vars[ 10 ] = state->vars[ 2 ];
-  child_state->vars[ 11 ] = state->vars[ 1 ];
+  child_state->vars[ 0 ] = state->vars[ 9 ];
+  child_state->vars[ 1 ] = state->vars[ 1 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 0 ];
+  child_state->vars[ 10 ] = state->vars[ 11 ];
+  child_state->vars[ 11 ] = state->vars[ 10 ];
 }
 
 static void bwdrule11( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 1 ];
-  child_state->vars[ 1 ] = state->vars[ 0 ];
-  child_state->vars[ 2 ] = state->vars[ 4 ];
-  child_state->vars[ 3 ] = state->vars[ 5 ];
-  child_state->vars[ 4 ] = state->vars[ 6 ];
-  child_state->vars[ 5 ] = state->vars[ 7 ];
-  child_state->vars[ 6 ] = state->vars[ 8 ];
-  child_state->vars[ 7 ] = state->vars[ 9 ];
-  child_state->vars[ 8 ] = state->vars[ 10 ];
-  child_state->vars[ 9 ] = state->vars[ 11 ];
-  child_state->vars[ 10 ] = state->vars[ 3 ];
-  child_state->vars[ 11 ] = state->vars[ 2 ];
+  child_state->vars[ 0 ] = state->vars[ 11 ];
+  child_state->vars[ 1 ] = state->vars[ 10 ];
+  child_state->vars[ 2 ] = state->vars[ 2 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 1 ];
+  child_state->vars[ 11 ] = state->vars[ 0 ];
 }
 
 static void bwdrule12( const state_t *state, state_t *child_state )
 {
-  child_state->vars[ 0 ] = state->vars[ 2 ];
-  child_state->vars[ 1 ] = state->vars[ 1 ];
-  child_state->vars[ 2 ] = state->vars[ 0 ];
-  child_state->vars[ 3 ] = state->vars[ 4 ];
-  child_state->vars[ 4 ] = state->vars[ 5 ];
-  child_state->vars[ 5 ] = state->vars[ 6 ];
-  child_state->vars[ 6 ] = state->vars[ 7 ];
-  child_state->vars[ 7 ] = state->vars[ 8 ];
-  child_state->vars[ 8 ] = state->vars[ 9 ];
-  child_state->vars[ 9 ] = state->vars[ 10 ];
-  child_state->vars[ 10 ] = state->vars[ 11 ];
-  child_state->vars[ 11 ] = state->vars[ 3 ];
+  child_state->vars[ 0 ] = state->vars[ 1 ];
+  child_state->vars[ 1 ] = state->vars[ 0 ];
+  child_state->vars[ 2 ] = state->vars[ 11 ];
+  child_state->vars[ 3 ] = state->vars[ 3 ];
+  child_state->vars[ 4 ] = state->vars[ 4 ];
+  child_state->vars[ 5 ] = state->vars[ 5 ];
+  child_state->vars[ 6 ] = state->vars[ 6 ];
+  child_state->vars[ 7 ] = state->vars[ 7 ];
+  child_state->vars[ 8 ] = state->vars[ 8 ];
+  child_state->vars[ 9 ] = state->vars[ 9 ];
+  child_state->vars[ 10 ] = state->vars[ 10 ];
+  child_state->vars[ 11 ] = state->vars[ 2 ];
 }
 
 static actfuncptr bwd_rules[ 12 ] = { bwdrule1, bwdrule2, bwdrule3, bwdrule4, bwdrule5, bwdrule6, bwdrule7, bwdrule8, bwdrule9, bwdrule10, bwdrule11, bwdrule12 };
@@ -621,9 +613,9 @@ static int bwdfn0_r0( const state_t *state, void *next_func )
 /* apply a rule to a state */
 #define apply_fwd_rule( rule, state, result ) fwd_rules[(rule)](state,result)
 /* returns 0 if the rule is pruned, non-zero otherwise */
-#define fwd_rule_valid_for_history( history, rule_used ) (fwd_prune_table[(history)+(rule_used)])
+#define fwd_rule_valid_for_history( history, rule_used ) 1 
 /* generate the next history from the current history and a rule */
-#define next_fwd_history( history, rule_used ) (fwd_prune_table[(history)+(rule_used)])
+#define next_fwd_history( history, rule_used ) 0 
 
 
 static const int bw_max_children = 12;
@@ -638,15 +630,48 @@ static const int bw_max_children = 12;
 /* apply a rule to a state */
 #define apply_bwd_rule( rule, state, result ) bwd_rules[(rule)](state,result)
 /* returns 0 if the rule is pruned, non-zero otherwise */
-#define bwd_rule_valid_for_history( history, rule_used ) (bwd_prune_table[(history)+(rule_used)])
+#define bwd_rule_valid_for_history( history, rule_used ) 1 
 /* generate the next history from the current history and a rule */
-#define next_bwd_history( history, rule_used ) (bwd_prune_table[(history)+(rule_used)])
+#define next_bwd_history( history, rule_used ) 0 
 
 
 /* returns 1 if state is a goal state, 0 otherwise */
 static int is_goal( const state_t *state )
 {
   if( state->vars[ 0 ] == 0 && state->vars[ 1 ] == 1 && state->vars[ 2 ] == 2 && state->vars[ 3 ] == 3 && state->vars[ 4 ] == 4 && state->vars[ 5 ] == 5 && state->vars[ 6 ] == 6 && state->vars[ 7 ] == 7 && state->vars[ 8 ] == 8 && state->vars[ 9 ] == 9 && state->vars[ 10 ] == 10 && state->vars[ 11 ] == 11 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 1 && state->vars[ 1 ] == 2 && state->vars[ 2 ] == 3 && state->vars[ 3 ] == 4 && state->vars[ 4 ] == 5 && state->vars[ 5 ] == 6 && state->vars[ 6 ] == 7 && state->vars[ 7 ] == 8 && state->vars[ 8 ] == 9 && state->vars[ 9 ] == 10 && state->vars[ 10 ] == 11 && state->vars[ 11 ] == 0 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 2 && state->vars[ 1 ] == 3 && state->vars[ 2 ] == 4 && state->vars[ 3 ] == 5 && state->vars[ 4 ] == 6 && state->vars[ 5 ] == 7 && state->vars[ 6 ] == 8 && state->vars[ 7 ] == 9 && state->vars[ 8 ] == 10 && state->vars[ 9 ] == 11 && state->vars[ 10 ] == 0 && state->vars[ 11 ] == 1 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 3 && state->vars[ 1 ] == 4 && state->vars[ 2 ] == 5 && state->vars[ 3 ] == 6 && state->vars[ 4 ] == 7 && state->vars[ 5 ] == 8 && state->vars[ 6 ] == 9 && state->vars[ 7 ] == 10 && state->vars[ 8 ] == 11 && state->vars[ 9 ] == 0 && state->vars[ 10 ] == 1 && state->vars[ 11 ] == 2 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 4 && state->vars[ 1 ] == 5 && state->vars[ 2 ] == 6 && state->vars[ 3 ] == 7 && state->vars[ 4 ] == 8 && state->vars[ 5 ] == 9 && state->vars[ 6 ] == 10 && state->vars[ 7 ] == 11 && state->vars[ 8 ] == 0 && state->vars[ 9 ] == 1 && state->vars[ 10 ] == 2 && state->vars[ 11 ] == 3 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 5 && state->vars[ 1 ] == 6 && state->vars[ 2 ] == 7 && state->vars[ 3 ] == 8 && state->vars[ 4 ] == 9 && state->vars[ 5 ] == 10 && state->vars[ 6 ] == 11 && state->vars[ 7 ] == 0 && state->vars[ 8 ] == 1 && state->vars[ 9 ] == 2 && state->vars[ 10 ] == 3 && state->vars[ 11 ] == 4 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 6 && state->vars[ 1 ] == 7 && state->vars[ 2 ] == 8 && state->vars[ 3 ] == 9 && state->vars[ 4 ] == 10 && state->vars[ 5 ] == 11 && state->vars[ 6 ] == 0 && state->vars[ 7 ] == 1 && state->vars[ 8 ] == 2 && state->vars[ 9 ] == 3 && state->vars[ 10 ] == 4 && state->vars[ 11 ] == 5 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 7 && state->vars[ 1 ] == 8 && state->vars[ 2 ] == 9 && state->vars[ 3 ] == 10 && state->vars[ 4 ] == 11 && state->vars[ 5 ] == 0 && state->vars[ 6 ] == 1 && state->vars[ 7 ] == 2 && state->vars[ 8 ] == 3 && state->vars[ 9 ] == 4 && state->vars[ 10 ] == 5 && state->vars[ 11 ] == 6 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 8 && state->vars[ 1 ] == 9 && state->vars[ 2 ] == 10 && state->vars[ 3 ] == 11 && state->vars[ 4 ] == 0 && state->vars[ 5 ] == 1 && state->vars[ 6 ] == 2 && state->vars[ 7 ] == 3 && state->vars[ 8 ] == 4 && state->vars[ 9 ] == 5 && state->vars[ 10 ] == 6 && state->vars[ 11 ] == 7 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 9 && state->vars[ 1 ] == 10 && state->vars[ 2 ] == 11 && state->vars[ 3 ] == 0 && state->vars[ 4 ] == 1 && state->vars[ 5 ] == 2 && state->vars[ 6 ] == 3 && state->vars[ 7 ] == 4 && state->vars[ 8 ] == 5 && state->vars[ 9 ] == 6 && state->vars[ 10 ] == 7 && state->vars[ 11 ] == 8 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 10 && state->vars[ 1 ] == 11 && state->vars[ 2 ] == 0 && state->vars[ 3 ] == 1 && state->vars[ 4 ] == 2 && state->vars[ 5 ] == 3 && state->vars[ 6 ] == 4 && state->vars[ 7 ] == 5 && state->vars[ 8 ] == 6 && state->vars[ 9 ] == 7 && state->vars[ 10 ] == 8 && state->vars[ 11 ] == 9 ) {
+    return 1;
+  }
+  if( state->vars[ 0 ] == 11 && state->vars[ 1 ] == 0 && state->vars[ 2 ] == 1 && state->vars[ 3 ] == 2 && state->vars[ 4 ] == 3 && state->vars[ 5 ] == 4 && state->vars[ 6 ] == 5 && state->vars[ 7 ] == 6 && state->vars[ 8 ] == 7 && state->vars[ 9 ] == 8 && state->vars[ 10 ] == 9 && state->vars[ 11 ] == 10 ) {
     return 1;
   }
   return 0;
@@ -669,6 +694,160 @@ static void init_goal_state( state_t *state, int goal_rule )
     state->vars[ 10 ] = 10;
     state->vars[ 11 ] = 11;
     break;
+  case 1:
+    state->vars[ 0 ] = 1;
+    state->vars[ 1 ] = 2;
+    state->vars[ 2 ] = 3;
+    state->vars[ 3 ] = 4;
+    state->vars[ 4 ] = 5;
+    state->vars[ 5 ] = 6;
+    state->vars[ 6 ] = 7;
+    state->vars[ 7 ] = 8;
+    state->vars[ 8 ] = 9;
+    state->vars[ 9 ] = 10;
+    state->vars[ 10 ] = 11;
+    state->vars[ 11 ] = 0;
+    break;
+  case 2:
+    state->vars[ 0 ] = 2;
+    state->vars[ 1 ] = 3;
+    state->vars[ 2 ] = 4;
+    state->vars[ 3 ] = 5;
+    state->vars[ 4 ] = 6;
+    state->vars[ 5 ] = 7;
+    state->vars[ 6 ] = 8;
+    state->vars[ 7 ] = 9;
+    state->vars[ 8 ] = 10;
+    state->vars[ 9 ] = 11;
+    state->vars[ 10 ] = 0;
+    state->vars[ 11 ] = 1;
+    break;
+  case 3:
+    state->vars[ 0 ] = 3;
+    state->vars[ 1 ] = 4;
+    state->vars[ 2 ] = 5;
+    state->vars[ 3 ] = 6;
+    state->vars[ 4 ] = 7;
+    state->vars[ 5 ] = 8;
+    state->vars[ 6 ] = 9;
+    state->vars[ 7 ] = 10;
+    state->vars[ 8 ] = 11;
+    state->vars[ 9 ] = 0;
+    state->vars[ 10 ] = 1;
+    state->vars[ 11 ] = 2;
+    break;
+  case 4:
+    state->vars[ 0 ] = 4;
+    state->vars[ 1 ] = 5;
+    state->vars[ 2 ] = 6;
+    state->vars[ 3 ] = 7;
+    state->vars[ 4 ] = 8;
+    state->vars[ 5 ] = 9;
+    state->vars[ 6 ] = 10;
+    state->vars[ 7 ] = 11;
+    state->vars[ 8 ] = 0;
+    state->vars[ 9 ] = 1;
+    state->vars[ 10 ] = 2;
+    state->vars[ 11 ] = 3;
+    break;
+  case 5:
+    state->vars[ 0 ] = 5;
+    state->vars[ 1 ] = 6;
+    state->vars[ 2 ] = 7;
+    state->vars[ 3 ] = 8;
+    state->vars[ 4 ] = 9;
+    state->vars[ 5 ] = 10;
+    state->vars[ 6 ] = 11;
+    state->vars[ 7 ] = 0;
+    state->vars[ 8 ] = 1;
+    state->vars[ 9 ] = 2;
+    state->vars[ 10 ] = 3;
+    state->vars[ 11 ] = 4;
+    break;
+  case 6:
+    state->vars[ 0 ] = 6;
+    state->vars[ 1 ] = 7;
+    state->vars[ 2 ] = 8;
+    state->vars[ 3 ] = 9;
+    state->vars[ 4 ] = 10;
+    state->vars[ 5 ] = 11;
+    state->vars[ 6 ] = 0;
+    state->vars[ 7 ] = 1;
+    state->vars[ 8 ] = 2;
+    state->vars[ 9 ] = 3;
+    state->vars[ 10 ] = 4;
+    state->vars[ 11 ] = 5;
+    break;
+  case 7:
+    state->vars[ 0 ] = 7;
+    state->vars[ 1 ] = 8;
+    state->vars[ 2 ] = 9;
+    state->vars[ 3 ] = 10;
+    state->vars[ 4 ] = 11;
+    state->vars[ 5 ] = 0;
+    state->vars[ 6 ] = 1;
+    state->vars[ 7 ] = 2;
+    state->vars[ 8 ] = 3;
+    state->vars[ 9 ] = 4;
+    state->vars[ 10 ] = 5;
+    state->vars[ 11 ] = 6;
+    break;
+  case 8:
+    state->vars[ 0 ] = 8;
+    state->vars[ 1 ] = 9;
+    state->vars[ 2 ] = 10;
+    state->vars[ 3 ] = 11;
+    state->vars[ 4 ] = 0;
+    state->vars[ 5 ] = 1;
+    state->vars[ 6 ] = 2;
+    state->vars[ 7 ] = 3;
+    state->vars[ 8 ] = 4;
+    state->vars[ 9 ] = 5;
+    state->vars[ 10 ] = 6;
+    state->vars[ 11 ] = 7;
+    break;
+  case 9:
+    state->vars[ 0 ] = 9;
+    state->vars[ 1 ] = 10;
+    state->vars[ 2 ] = 11;
+    state->vars[ 3 ] = 0;
+    state->vars[ 4 ] = 1;
+    state->vars[ 5 ] = 2;
+    state->vars[ 6 ] = 3;
+    state->vars[ 7 ] = 4;
+    state->vars[ 8 ] = 5;
+    state->vars[ 9 ] = 6;
+    state->vars[ 10 ] = 7;
+    state->vars[ 11 ] = 8;
+    break;
+  case 10:
+    state->vars[ 0 ] = 10;
+    state->vars[ 1 ] = 11;
+    state->vars[ 2 ] = 0;
+    state->vars[ 3 ] = 1;
+    state->vars[ 4 ] = 2;
+    state->vars[ 5 ] = 3;
+    state->vars[ 6 ] = 4;
+    state->vars[ 7 ] = 5;
+    state->vars[ 8 ] = 6;
+    state->vars[ 9 ] = 7;
+    state->vars[ 10 ] = 8;
+    state->vars[ 11 ] = 9;
+    break;
+  case 11:
+    state->vars[ 0 ] = 11;
+    state->vars[ 1 ] = 0;
+    state->vars[ 2 ] = 1;
+    state->vars[ 3 ] = 2;
+    state->vars[ 4 ] = 3;
+    state->vars[ 5 ] = 4;
+    state->vars[ 6 ] = 5;
+    state->vars[ 7 ] = 6;
+    state->vars[ 8 ] = 7;
+    state->vars[ 9 ] = 8;
+    state->vars[ 10 ] = 9;
+    state->vars[ 11 ] = 10;
+    break;
   }
 }
 
@@ -681,6 +860,50 @@ static int8_t next_goal_state( state_t *state, int *goal_iter )
 {
   switch( *goal_iter ) {
   case 0:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 1:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 2:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 3:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 4:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 5:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 6:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 7:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 8:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 9:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 10:
+    ++(*goal_iter);
+    init_goal_state( state, *goal_iter );
+    return 1;
+  case 11:
     return 0;
   }
   return 0;

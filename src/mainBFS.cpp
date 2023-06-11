@@ -1,14 +1,17 @@
 #include <iostream>
 
-#include "algorithms/IDA.hpp"
 #include "algorithms/BFS.hpp"
+//#include "aux.hpp"
 
 int main(int argc, char const *argv[])
 {
-    do_ida();
-    state_t root = {
-        {3, 2, 1, 0, 7, 6, 5, 4, 8, 9, 10, 11}
-    };
+    if (argc != 2)
+        return 1;
+
+    std::cout << argv[1] << std::endl;
+    state_t root;
+    read_state(argv[1], &root);
+
     do_bfs(root);
     do_bfs_prunning(root);
     return 0;

@@ -6,7 +6,7 @@ CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
 PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
-BASE_FOLDER = ../../../../..
+BASE_FOLDER = ../../..
 
 psvn2c_core.c:
 	@cp ${BASE_FOLDER}/src/psvn2c_core.c ./psvn2c_core.c
