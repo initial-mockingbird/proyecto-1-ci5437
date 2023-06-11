@@ -4,9 +4,9 @@
 
 CC = gcc
 CXX = g++
-OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
+OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable -std=c++20
 PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
-BASE_FOLDER = ../../..
+BASE_FOLDER = ../../../psvn-for-ci5437
 
 psvn2c_core.c:
 	@cp ${BASE_FOLDER}/src/psvn2c_core.c ./psvn2c_core.c
@@ -61,6 +61,10 @@ abstractor:
 	@echo "**** Constructing $@ ..."
 	@$(CXX) $(OPT) ${BASE_FOLDER}/global/dist_pdb.cpp -include $< -o $@
 	@rm -f $*.c
+
+%.a_star:  %.c ../../algorithms/A_star/A_star.hpp
+	$(CXX) $(OPT) ../../algorithms/A_star/A_star.cpp -include $< -include solver.cpp -o $@
+	rm -f $*.c
 
 .PHONY: clean
 clean:

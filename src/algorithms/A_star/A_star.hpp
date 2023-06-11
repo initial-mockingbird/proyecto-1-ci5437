@@ -95,7 +95,11 @@ std::optional<Node> a_star(GlobalConfig opt){
               std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
             }
             opt.set_distance(ns,n.g());
-            if (ns.is_goal_achieved()) return n;
+            if (ns.is_goal_achieved()){
+              std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
+              std::cout << "Minimum moves taken: " << n.g() << std::endl;
+              return n;
+            } 
             for(auto [s,a,c] : ns.successors())
             {   
                 double h = opt.h(s);
