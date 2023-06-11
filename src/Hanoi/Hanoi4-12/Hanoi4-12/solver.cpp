@@ -5,20 +5,11 @@
 #include <optional>
 int main(int argc, char const *argv[])
 {
-  if (argc < NUMVARS){
-    std::cout << "THE STATE VECTOR IS INCOMPLETE, FATAL ERROR. PROVIDE GOOD INPUT" << std::endl;
-    return 1;
-  }
   std::vector<std::string> names{"abst1","abst2"};
   PDB pdb{names,PDB_MODE::MAX};
   state_t state;
 
-  std::cout << NUMVARS << std::endl;
-  for (size_t i = 1; i <= NUMVARS; i++)
-  {
-    state.vars[i-1]  = std::stoi(argv[i]);
-  }
-  
+  read_state(argv[1], &state);
   
   GlobalConfig config {pdb,state};
   
