@@ -13,7 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include "../../utils/pdb.hpp"
-
+#include <ctime>
 /* Interface */
 
 // Declaration of the concept "A star"
@@ -74,6 +74,8 @@ T pop(std::priority_queue<
 template<typename GlobalConfig, typename State, typename Node, typename Action>
 requires A_star<GlobalConfig, State, Node, Action>
 std::optional<Node> a_star(GlobalConfig opt){
+    time_t start,stop;
+    time(&start);
     // Arguments swap, in the pdf it has type: PQ<Node,double>
     // but i prefer to put the cost at the beginning.
     std::priority_queue<
@@ -89,6 +91,12 @@ std::optional<Node> a_star(GlobalConfig opt){
         Node n = std::get<1>(pq.top());
         pq.pop();
         State ns = n.state();
+        time(&stop);
+        if (stop-start > 7 * 60){
+          std::cout << "Time out! " << std::endl;
+          std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
+          return std::nullopt;
+        }
         if (n.g() < opt.get_distance(ns)){
             expanded_nodes++;
             if (expanded_nodes % 10000 == 0){

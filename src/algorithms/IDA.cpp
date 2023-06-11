@@ -13,7 +13,7 @@ typedef std::pair<std::optional<state_t>, bound_t> ida_pair_t;
 bound_t g = 0ULL;
 
 void print_state(state_t &state) {
-    for (int i = 0; i < 12; ++i)
+    for (int i = 0; i < NUMVARS; ++i)
         std::cout << static_cast<int16_t>(state.vars[i]) << ", ";
     std::cout << std::endl;
 }
