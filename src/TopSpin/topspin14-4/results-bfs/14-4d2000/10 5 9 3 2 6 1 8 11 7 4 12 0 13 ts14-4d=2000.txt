@@ -1,0 +1,37 @@
+10 5 9 3 2 6 1 8 11 7 4 12 0 13
+Profundidad: 1
+Tiene 15 nodo(s).
+Profundidad: 2
+Tiene 210 nodo(s).
+Profundidad: 3
+Tiene 2940 nodo(s).
+Profundidad: 4
+Tiene 41160 nodo(s).
+Profundidad: 5
+Tiene 576240 nodo(s).
+Profundidad: 6
+Tiene 8067360 nodo(s).
+Profundidad: 7
+Tiene 112943040 nodo(s).
+Tiempo de corrida 420001ms
+No hay objetivo
+Tiempo de corrida 420001ms
+
+Profundidad: 1
+Tiene 15 nodo(s).
+Profundidad: 2
+Tiene 146 nodo(s).
+Profundidad: 3
+Tiene 1225 nodo(s).
+Profundidad: 4
+Tiene 9696 nodo(s).
+Profundidad: 5
+Tiene 74266 nodo(s).
+Profundidad: 6
+Tiene 551655 nodo(s).
+Profundidad: 7
+Tiene 3965652 nodo(s).
+Tiempo de corrida 420001ms
+No hay objetivo
+Tiempo de corrida 420001ms
+
