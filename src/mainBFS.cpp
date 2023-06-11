@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
     state_t root;
     read_state(argv[1], &root);
 
-    //do_bfs(root);
+    do_bfs(root);
     do_bfs_prunning(root);
     return 0;
 }
