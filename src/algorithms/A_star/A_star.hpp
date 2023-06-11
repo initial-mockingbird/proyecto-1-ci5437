@@ -106,7 +106,8 @@ std::optional<Node> a_star(GlobalConfig opt){
             if (ns.is_goal_achieved()){
               std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
               std::cout << "Minimum moves taken: " << n.g() << std::endl;
-              return n;
+              std::cout << "Time: " << (stop-start) << std::endl;
+              return n; 
             } 
             for(auto [s,a,c] : ns.successors())
             {   
