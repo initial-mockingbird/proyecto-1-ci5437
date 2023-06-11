@@ -83,13 +83,17 @@ std::optional<Node> a_star(GlobalConfig opt){
         > pq;
 
     pq.push({opt.h(opt.init()),opt.make_root_node(opt.init())});
-    
+    int expanded_nodes = 0;
     while (!pq.empty()){
         //Node n   = pop<Node>(pq);
         Node n = std::get<1>(pq.top());
         pq.pop();
         State ns = n.state();
         if (n.g() < opt.get_distance(ns)){
+            expanded_nodes++;
+            if (expanded_nodes % 10000 == 0){
+              std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
+            }
             opt.set_distance(ns,n.g());
             if (ns.is_goal_achieved()) return n;
             for(auto [s,a,c] : ns.successors())
