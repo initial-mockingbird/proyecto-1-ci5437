@@ -13,7 +13,12 @@
 #include <iostream>
 #include <fstream>
 #include "../../utils/pdb.hpp"
-#include <ctime>
+#include <chrono>
+
+#define MAX_RUN_TIME 420000
+
+using namespace std::chrono;
+
 /* Interface */
 
 // Declaration of the concept "A star"
@@ -69,13 +74,17 @@ T pop(std::priority_queue<
     return element;
 }
 
+int64_t alreadySpentMaxRuntime(system_clock::time_point &from) {
+    int64_t curTime = duration_cast<milliseconds>(high_resolution_clock::now() - from).count();
+    return curTime > MAX_RUN_TIME ? curTime : -1;
+}
 
 // doesnt work, ask the teach why
 template<typename GlobalConfig, typename State, typename Node, typename Action>
 requires A_star<GlobalConfig, State, Node, Action>
 std::optional<Node> a_star(GlobalConfig opt){
-    time_t start,stop;
-    time(&start);
+    int64_t auxTime;
+    system_clock::time_point start = high_resolution_clock::now();
     // Arguments swap, in the pdf it has type: PQ<Node,double>
     // but i prefer to put the cost at the beginning.
     std::priority_queue<
@@ -91,11 +100,9 @@ std::optional<Node> a_star(GlobalConfig opt){
         Node n = std::get<1>(pq.top());
         pq.pop();
         State ns = n.state();
-        time(&stop);
-        if (stop-start > 7 * 60){
-          std::cout << "Time out! " << std::endl;
-          std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
-          return std::nullopt;
+        if ((auxTime = alreadySpentMaxRuntime(start)) != -1) {
+            std::cout << "Tiempo de corrida " << auxTime << "ms" << std::endl;
+            break;
         }
         if (n.g() < opt.get_distance(ns)){
             expanded_nodes++;
@@ -106,7 +113,8 @@ std::optional<Node> a_star(GlobalConfig opt){
             if (ns.is_goal_achieved()){
               std::cout << "A* has expanded: " << expanded_nodes << " nodes" << std::endl;
               std::cout << "Minimum moves taken: " << n.g() << std::endl;
-              std::cout << "Time: " << (stop-start) << std::endl;
+              std::cout << "Tiempo de corrida " << duration_cast<milliseconds>(high_resolution_clock::now() - start).count();
+              std::cout << "ms" << std::endl << std::endl;
               return n; 
             } 
             for(auto [s,a,c] : ns.successors())

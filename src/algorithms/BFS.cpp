@@ -7,7 +7,6 @@
 #include "../utils/state_comparer.hpp"
 
 #define MAX_RUN_TIME 420000
-//#include "../aux.hpp"
 
 using namespace std::chrono;
 
