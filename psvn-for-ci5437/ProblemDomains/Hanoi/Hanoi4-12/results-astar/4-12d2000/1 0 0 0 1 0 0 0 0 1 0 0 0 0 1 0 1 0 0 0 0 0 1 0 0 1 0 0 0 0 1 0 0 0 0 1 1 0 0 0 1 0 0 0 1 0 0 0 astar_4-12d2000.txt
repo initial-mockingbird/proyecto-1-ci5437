@@ -1,0 +1,13 @@
+A* has expanded: 10000 nodes
+A* has expanded: 20000 nodes
+A* has expanded: 30000 nodes
+A* has expanded: 40000 nodes
+A* has expanded: 50000 nodes
+A* has expanded: 60000 nodes
+A* has expanded: 70000 nodes
+A* has expanded: 80000 nodes
+A* has expanded: 88179 nodes
+Minimum moves taken: 31
+Tiempo de corrida 4201ms
+
+1

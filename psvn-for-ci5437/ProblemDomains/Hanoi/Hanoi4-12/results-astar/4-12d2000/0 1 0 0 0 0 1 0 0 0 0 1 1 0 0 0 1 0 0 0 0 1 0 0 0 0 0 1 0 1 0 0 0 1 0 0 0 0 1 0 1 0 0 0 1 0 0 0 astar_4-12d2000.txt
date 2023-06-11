@@ -1,0 +1,56 @@
+A* has expanded: 10000 nodes
+A* has expanded: 20000 nodes
+A* has expanded: 30000 nodes
+A* has expanded: 40000 nodes
+A* has expanded: 50000 nodes
+A* has expanded: 60000 nodes
+A* has expanded: 70000 nodes
+A* has expanded: 80000 nodes
+A* has expanded: 90000 nodes
+A* has expanded: 100000 nodes
+A* has expanded: 110000 nodes
+A* has expanded: 120000 nodes
+A* has expanded: 130000 nodes
+A* has expanded: 140000 nodes
+A* has expanded: 150000 nodes
+A* has expanded: 160000 nodes
+A* has expanded: 170000 nodes
+A* has expanded: 180000 nodes
+A* has expanded: 190000 nodes
+A* has expanded: 200000 nodes
+A* has expanded: 210000 nodes
+A* has expanded: 220000 nodes
+A* has expanded: 230000 nodes
+A* has expanded: 240000 nodes
+A* has expanded: 250000 nodes
+A* has expanded: 260000 nodes
+A* has expanded: 270000 nodes
+A* has expanded: 280000 nodes
+A* has expanded: 290000 nodes
+A* has expanded: 300000 nodes
+A* has expanded: 310000 nodes
+A* has expanded: 320000 nodes
+A* has expanded: 330000 nodes
+A* has expanded: 340000 nodes
+A* has expanded: 350000 nodes
+A* has expanded: 360000 nodes
+A* has expanded: 370000 nodes
+A* has expanded: 380000 nodes
+A* has expanded: 390000 nodes
+A* has expanded: 400000 nodes
+A* has expanded: 410000 nodes
+A* has expanded: 420000 nodes
+A* has expanded: 430000 nodes
+A* has expanded: 440000 nodes
+A* has expanded: 450000 nodes
+A* has expanded: 460000 nodes
+A* has expanded: 470000 nodes
+A* has expanded: 480000 nodes
+A* has expanded: 490000 nodes
+A* has expanded: 500000 nodes
+A* has expanded: 510000 nodes
+A* has expanded: 517020 nodes
+Minimum moves taken: 38
+Tiempo de corrida 24602ms
+
+1
