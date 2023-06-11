@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 #include <optional>
+
+
 int main(int argc, char const *argv[])
 {
   std::vector<std::string> names{"abst1","abst2"};
@@ -13,7 +15,10 @@ int main(int argc, char const *argv[])
   
   GlobalConfig config {pdb,state};
   
+  
+  
   std::optional<Node> result = a_star<GlobalConfig,State,Node,Action>(config);
+  
   std::cout << result.has_value() << std::endl;
   return 0;
 }
