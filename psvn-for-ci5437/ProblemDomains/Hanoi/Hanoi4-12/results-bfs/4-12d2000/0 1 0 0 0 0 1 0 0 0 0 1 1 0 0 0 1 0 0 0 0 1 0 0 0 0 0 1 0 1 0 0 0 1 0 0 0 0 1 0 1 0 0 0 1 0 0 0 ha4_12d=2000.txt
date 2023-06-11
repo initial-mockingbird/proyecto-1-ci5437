@@ -1,0 +1,105 @@
+0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 0 1 0 0 0
+Profundidad: 1
+Tiene 7 nodo(s).
+Profundidad: 2
+Tiene 42 nodo(s).
+Profundidad: 3
+Tiene 252 nodo(s).
+Profundidad: 4
+Tiene 1512 nodo(s).
+Profundidad: 5
+Tiene 9072 nodo(s).
+Profundidad: 6
+Tiene 54432 nodo(s).
+Profundidad: 7
+Tiene 326592 nodo(s).
+Profundidad: 8
+Tiene 1959552 nodo(s).
+Profundidad: 9
+Tiene 11757312 nodo(s).
+Profundidad: 10
+Tiene 70543872 nodo(s).
+Tiempo de corrida 420001ms
+No hay objetivo
+Tiempo de corrida 420001ms
+
+Profundidad: 1
+Tiene 7 nodo(s).
+Profundidad: 2
+Tiene 22 nodo(s).
+Profundidad: 3
+Tiene 53 nodo(s).
+Profundidad: 4
+Tiene 92 nodo(s).
+Profundidad: 5
+Tiene 204 nodo(s).
+Profundidad: 6
+Tiene 301 nodo(s).
+Profundidad: 7
+Tiene 557 nodo(s).
+Profundidad: 8
+Tiene 898 nodo(s).
+Profundidad: 9
+Tiene 1195 nodo(s).
+Profundidad: 10
+Tiene 1993 nodo(s).
+Profundidad: 11
+Tiene 2928 nodo(s).
+Profundidad: 12
+Tiene 3767 nodo(s).
+Profundidad: 13
+Tiene 5346 nodo(s).
+Profundidad: 14
+Tiene 7657 nodo(s).
+Profundidad: 15
+Tiene 10362 nodo(s).
+Profundidad: 16
+Tiene 12971 nodo(s).
+Profundidad: 17
+Tiene 16207 nodo(s).
+Profundidad: 18
+Tiene 22191 nodo(s).
+Profundidad: 19
+Tiene 28708 nodo(s).
+Profundidad: 20
+Tiene 35672 nodo(s).
+Profundidad: 21
+Tiene 40455 nodo(s).
+Profundidad: 22
+Tiene 48030 nodo(s).
+Profundidad: 23
+Tiene 62123 nodo(s).
+Profundidad: 24
+Tiene 80200 nodo(s).
+Profundidad: 25
+Tiene 94263 nodo(s).
+Profundidad: 26
+Tiene 102823 nodo(s).
+Profundidad: 27
+Tiene 108302 nodo(s).
+Profundidad: 28
+Tiene 122875 nodo(s).
+Profundidad: 29
+Tiene 151863 nodo(s).
+Profundidad: 30
+Tiene 187982 nodo(s).
+Profundidad: 31
+Tiene 225801 nodo(s).
+Profundidad: 32
+Tiene 255862 nodo(s).
+Profundidad: 33
+Tiene 264166 nodo(s).
+Profundidad: 34
+Tiene 260989 nodo(s).
+Profundidad: 35
+Tiene 271840 nodo(s).
+Profundidad: 36
+Tiene 309501 nodo(s).
+Profundidad: 37
+Tiene 365860 nodo(s).
+Profundidad: 38
+Tiene 438169 nodo(s).
+Profundidad: 38
+Tiene 438169 nodo(s).
+Tiempo de corrida 231780ms
+
