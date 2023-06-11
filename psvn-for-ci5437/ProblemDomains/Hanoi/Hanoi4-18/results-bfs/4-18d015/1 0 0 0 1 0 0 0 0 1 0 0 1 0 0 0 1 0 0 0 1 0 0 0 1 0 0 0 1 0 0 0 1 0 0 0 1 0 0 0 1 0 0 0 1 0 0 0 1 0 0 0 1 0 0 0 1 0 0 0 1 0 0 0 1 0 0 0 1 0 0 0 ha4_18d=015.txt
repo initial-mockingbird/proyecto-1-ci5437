@@ -1,0 +1,29 @@
+1 0 0 0 1 0 0 0 0 1 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0
+Profundidad: 1
+Tiene 6 nodo(s).
+Profundidad: 2
+Tiene 32 nodo(s).
+Profundidad: 3
+Tiene 178 nodo(s).
+Profundidad: 4
+Tiene 1006 nodo(s).
+Profundidad: 5
+Tiene 5732 nodo(s).
+Profundidad: 5
+Tiene 5732 nodo(s).
+Tiempo de corrida 225ms
+
+Profundidad: 1
+Tiene 6 nodo(s).
+Profundidad: 2
+Tiene 15 nodo(s).
+Profundidad: 3
+Tiene 30 nodo(s).
+Profundidad: 4
+Tiene 51 nodo(s).
+Profundidad: 5
+Tiene 84 nodo(s).
+Profundidad: 5
+Tiene 84 nodo(s).
+Tiempo de corrida 35ms
+

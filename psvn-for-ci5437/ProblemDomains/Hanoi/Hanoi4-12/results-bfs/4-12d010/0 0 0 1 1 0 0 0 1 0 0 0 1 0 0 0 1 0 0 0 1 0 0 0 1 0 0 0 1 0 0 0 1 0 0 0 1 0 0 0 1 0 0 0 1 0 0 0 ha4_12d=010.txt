@@ -1,0 +1,13 @@
+0 0 0 1 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0
+Profundidad: 1
+Tiene 6 nodo(s).
+Profundidad: 1
+Tiene 6 nodo(s).
+Tiempo de corrida 26ms
+
+Profundidad: 1
+Tiene 6 nodo(s).
+Profundidad: 1
+Tiene 6 nodo(s).
+Tiempo de corrida 21ms
+
