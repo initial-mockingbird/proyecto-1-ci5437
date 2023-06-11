@@ -47,3 +47,7 @@
 # psvn
 *.abst
 *.pdb
+
+**/*.a_star
+**/abst*.psvn
+**/aux.hpp
