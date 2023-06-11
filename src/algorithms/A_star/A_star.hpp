@@ -94,11 +94,7 @@ std::optional<Node> a_star(GlobalConfig opt){
             if (ns.is_goal_achieved()) return n;
             for(auto [s,a,c] : ns.successors())
             {   
-                s.print();
                 double h = opt.h(s);
-                std::cout << n.g() << std::endl;
-                std::cout << c << std::endl;
-                std::cout << h << std::endl;
 
                 if (h <  std::numeric_limits<double>::infinity()){
                     std::tuple<double,Node> _ns{
