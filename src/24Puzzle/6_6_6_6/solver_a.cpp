@@ -21,6 +21,7 @@ int main(int argc, char const *argv[])
   
   GlobalConfig config {pdb,state};
   
+  std::cout << "hola!" << std::endl;
   std::optional<Node> result = a_star<GlobalConfig,State,Node,Action>(config);
   std::cout << result.has_value() << std::endl;
   

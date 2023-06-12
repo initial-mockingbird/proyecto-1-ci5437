@@ -1,0 +1,5 @@
+A* has expanded: 2736 nodes
+Minimum moves taken: 10
+Tiempo de corrida 144ms
+
+1
