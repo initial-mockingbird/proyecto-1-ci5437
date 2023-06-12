@@ -1,0 +1,18 @@
+Estado raiz
+0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 
+Tiempo de corrida 420013ms
+Tiempo de corrida 420014ms
+Tiempo de corrida 420015ms
+Tiempo de corrida 420015ms
+Tiempo de corrida 420016ms
+Tiempo de corrida 420016ms
+Tiempo de corrida 420016ms
+Tiempo de corrida 420017ms
+Tiempo de corrida 420017ms
+Tiempo de corrida 420017ms
+Tiempo de corrida 420017ms
+Tiempo de corrida 420018ms
+Tiempo de corrida 420018ms
+Tiempo de corrida 420018ms
+Nodos totales expandidos: 1513456863
+0

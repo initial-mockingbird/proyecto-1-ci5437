@@ -1,0 +1,4 @@
+Estado raiz
+6, 7, 4, 3, 5, 2, 1, 0, 9, 8, 10, 11, 
+Nodos totales expandidos: 1110
+1
