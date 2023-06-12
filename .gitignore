@@ -51,3 +51,4 @@
 **/*.a_star
 **/abst*.psvn
 **/aux.hpp
+**/*.ida
