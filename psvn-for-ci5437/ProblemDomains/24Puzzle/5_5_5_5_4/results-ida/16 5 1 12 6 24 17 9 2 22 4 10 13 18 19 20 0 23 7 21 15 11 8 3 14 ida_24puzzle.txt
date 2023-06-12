@@ -1,0 +1,14 @@
+Estado raiz
+16, 5, 1, 12, 6, 24, 17, 9, 2, 22, 4, 10, 13, 18, 19, 20, 0, 23, 7, 21, 15, 11, 8, 3, 14, 
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Nodos totales expandidos: 85084789
+0
