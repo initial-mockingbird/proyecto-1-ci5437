@@ -8,7 +8,7 @@
 
 int main(int argc, char const *argv[])
 {
-  std::vector<std::string> names{"abst1","abst2","abst3"};
+  std::vector<std::string> names{"abst1","abst2"};
   PDB pdb{names,PDB_MODE::MAX};
   state_t state;
 
