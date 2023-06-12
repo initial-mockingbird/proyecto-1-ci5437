@@ -9,7 +9,7 @@
 int main(int argc, char const *argv[])
 {
   std::vector<std::string> names{"abst_1","abst_2","abst_3"};
-  PDB pdb{names,PDB_MODE::MAX};
+  PDB pdb{names,PDB_MODE::ADD};
   state_t state;
 
   read_state(argv[1], &state);
