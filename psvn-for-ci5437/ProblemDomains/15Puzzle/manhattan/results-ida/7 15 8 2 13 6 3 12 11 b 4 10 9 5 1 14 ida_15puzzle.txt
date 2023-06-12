@@ -1,0 +1,19 @@
+Estado raiz
+7, 15, 8, 2, 13, 6, 3, 12, 11, 0, 4, 10, 9, 5, 1, 14, 
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Tiempo de corrida 420001ms
+Nodos totales expandidos: 388252175
+0

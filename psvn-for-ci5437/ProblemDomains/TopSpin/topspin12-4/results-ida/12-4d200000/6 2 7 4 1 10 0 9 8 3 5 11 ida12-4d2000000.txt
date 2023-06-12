@@ -1,0 +1,5 @@
+Estado raiz
+6, 2, 7, 4, 1, 10, 0, 9, 8, 3, 5, 11, 
+Tiempo de corrida 21ms
+Nodos totales expandidos: 4181
+1
