@@ -74,6 +74,14 @@ abstractor:
 	$(CXX) $(OPT) ../../algorithms/IDA.cpp -include $< -include solver_ida.cpp -o $@
 	rm -f $*.c
 
+%.bfs:  %.c
+	$(CXX) $(OPT) ../../mainBFS.cpp ../../algorithms/BFS.cpp -include $< -o $@
+	rm -f $*.c
+
+%.bfs:  %.c
+	$(CXX) $(OPT) ../../mainBFS.cpp ../../algorithms/BFS.cpp -include $< -o $@
+	rm -f $*.c
+	
 .PHONY: clean
 clean:
 	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~

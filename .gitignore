@@ -52,3 +52,4 @@
 **/abst*.psvn
 **/aux.hpp
 **/*.ida
+**/*.bfs
