@@ -43,7 +43,8 @@ ida_pair_t f_bounded_dfs_visit(state_t &state, bound_t bound, PDB pdb,system_clo
     while ((action = next_ruleid(&iter)) >= 0) {
         total_nodes++;
         if ((auxTime = alreadySpentMaxRuntime(start)) != -1) {
-            std::cout << "Tiempo de corrida " << auxTime << "ms" << std::endl;
+            std::cout << "Tiempo de corrida " << auxTime;
+            std::cout << "ms" << std::endl;
             break;
         }
         state_t m;
@@ -76,11 +77,14 @@ std::optional<state_t> do_ida(state_t root,PDB pdb) {
         ida_pair_t p(f_bounded_dfs_visit(root, bound, pdb, start));
 
         if ((auxTime = alreadySpentMaxRuntime(start)) != -1) {
-            std::cout << "Tiempo de corrida " << auxTime << "ms" << std::endl;
+            std::cout << "Tiempo de corrida " << auxTime;
+            std::cout << "ms" << std::endl;
             std::cout << "Nodos totales expandidos: " << total_nodes << std::endl;
             return std::nullopt;
         }
         if (p.first.has_value()){
+          std::cout << "Tiempo de corrida " << duration_cast<milliseconds>(high_resolution_clock::now() - start).count();
+          std::cout << "ms" << std::endl;
           std::cout << "Nodos totales expandidos: " << total_nodes << std::endl;
           return p.first.value();
         } 
